@@ -1,5 +1,5 @@
 const path = require('path');
-
+const HtmlWebpackPlugin = require('html-webpack-plugin'); 
 module.exports = {
   mode: 'production',
   entry: './src/index.ts',
@@ -16,6 +16,9 @@ module.exports = {
       { test: /\.css$/, use: ["style-loader", "css-loader"] }
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({template: './index.html'})
+  ],
   devServer: {
     client: {
       overlay: { warnings: false },
